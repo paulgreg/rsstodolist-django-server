@@ -38,8 +38,7 @@ def renderHome(request):
 def renderRss(request, name, limit):
   feeds = FeedEntry.objects.filter(name=name).order_by('-creation_date')[:limit]
   context = { 'name': name, 'feeds': feeds }
-  #self.response.headers['Content-Type'] = 'application/rss+xml'
-  return render(request, 'rss.xml', context)
+  return render(request, 'rss.xml', context,  content_type='text/xml')
 
 
 def add(request): 

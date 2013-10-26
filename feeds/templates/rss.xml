@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>RSS Todo List - {{ name }}</title>
+    <link>http://rsstodolist.appspot.com/?n={{ name }}</link>
+    <description>RSS 2.0 feed containing your todolist items</description>
+    <language>en-us</language>
+    <webMaster>paulgreg@gmail.com</webMaster>
+	 {% for feed in feeds %}
+	 	<item>
+			<title>{{ feed.title }}</title>
+	 		<link>{{ feed.url }}</link>
+	 		<description>{{ feed.description }}</description>
+			<pubDate>{{ feed.creation_date|date:"r" }}</pubDate>
+			<guid isPermaLink="false">{{ feed.key }}</guid>
+	 	</item>
+	 {% endfor %}
+	 {% if not feeds %}
+	 	<item>
+			<title>Default item in your feed</title>
+	 		<link>http://rsstodolist.appspot.com/</link>
+			<guid isPermaLink="false">0000000001</guid>
+	 		<description>Default sample item</description>
+	 	</item>
+	 {% endif %}
+	</channel>
+</rss>
+

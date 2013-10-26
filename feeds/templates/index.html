@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>rsstodolist: an RSS based todo-list</title>
+	<meta name="robots" content="index, follow"/>
+	<meta name="keywords" content="rss todolist, todolist"/>
+	<meta name="author" content="Gr&eacute;gory Paul"/>
+	<meta name="description" content="An RSS based todo-list"/>
+	<style type="text/css">
+        body { background-color: #3B7CC0; margin: 0 5%; font-family: sans-serif; }
+        #content { background-color: white; padding: 2%; border-right: 3px solid #159EFE; border-left: 3px solid #159EFE; }
+        h1 { color: #159EFE; }
+        h2 { color: #63ADF5; margin: 1em 0.5em 1em 0.5em; }
+        h3 { color: #3B7CC0; margin-left: 2.5em; }
+        p { margin-left: 4em; }
+        ul { margin-left: 3em; list-style-type: square; }
+        label { float: left; width: 7em; text-align: right; }
+        input[name=username] { width: 10em; }
+        input[name=url] { width: 40em; }
+        input[type=submit] { margin-left: 9.5em; }
+        img { border: 0; }
+        .right { float: right; }
+        .warning { font-style: italic; }
+	</style>
+	<link rel="icon" type="image/png" href="/favicon.png" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	<link rel="jetpack" href="http://rsstodolist.googlecode.com/svn/trunk/firefox-jetpack-extension/rsstodolist-jetpack.js" />
+</head>
+<body>
+	<div id="content">
+		<h1>RSS TodoList</h1>
+
+		<h2>1. Add an URL to your feed</h2>
+
+		<h3>1. By using that form :</h3>
+			<form method="get" action="add">
+				<p>
+					<label for="url">URL</label>&nbsp;:&nbsp;<input type="text" id="url" name="url" value="{{ random_url }}"/><br/>
+					<label for="name">Feed name</label>&nbsp;:&nbsp;<input type="text" id="name" name="name" value="somename"/>
+					 replace by whatever name you want<br/>
+					<input type="submit" />
+				</p>
+			</form>
+			<p class="warning">Please note that feed &quot;somename&quot; is limited to links from &quot;http://en.wikipedia.org&quot; to prevent spam</p>
+		<h3>2. By calling an URL :</h3>
+			<p><a href="/add?name=somename&amp;url={{ random_url }}">http://rsstodolist.appspot.com/add?name=somename&amp;url={{ random_url }}</a></p>
+			<ul>
+				<li>By default, the feed title will be fetched from the web page title. You may force it by using the &quot;&amp;title&quot; parameter.</li>
+				<li>Also, by default, your feed will contain 25 items. You can change that by setting &quot;&amp;limit&quot; parameter from 1 to 100.</li>
+				<li>A description for the link may be added by using the &quot;description&quot; parameter</li>
+				<li>You may also use short parameters like &quot;n&quot; for &quot;name&quot;, &quot;u&quot; for &quot;url&quot;, &quot;t&quot; for &quot;title&quot;, &quot;l&quot; for &quot;limit&quot; or &quot;d&quot; for &quot;description&quot; like that : <a href="/add?n=somename&amp;u={{ random_url }}">/add?n=somename&amp;u={{ random_url }}</a></li>
+			</ul>
+
+		<h3>3. By using that <a href="http://en.wikipedia.org/wiki/Bookmarklet" title="Learn more about bookmarklet on Wikipedia">bookmarklet</a> :</h3>
+			<p>Simply drag and drop that <a href="javascript:var rss=prompt('RSS feed name ?');var r=new XMLHttpRequest();r.open('GET', 'http://rsstodolist.appspot.com/add?n='+rss+'&amp;url='+encodeURIComponent(window.location), true);r.setRequestHeader('Content-Type', 'text/plain;charset=UTF-8');r.send(null);">rsstodolist bookmarklet</a> to your browser toolbar. Then, clicking on that bookmark will add current page to the RSS feed.</p>
+
+		<h3>4. By using a Google Chrome extension :</h3>
+				<p>A <a href="https://chrome.google.com/webstore/detail/gjnfedompndjcoeannmcppbckbkjhpkd">Google Chrome extension</a> is available to add current URL by a single click, remove it and access your feed.</p>
+
+		<h3>5. By using a Firefox extension :</h3>
+				<p>A <a href="https://addons.mozilla.org/fr/firefox/addon/rss-todolist-addon/">Firefox extension</a> has been made by Aurélien Thieriot (<a href="http://twitter.com/a_thieriot" title="Aurélien on twitter">@a_thieriot</a>). Many thanks Aurélien !</p>
+
+		<h3>6. By using a Safari extension :</h3>
+				<p>A <a href="http://algorithmique.net/rsstodolist/RssTodoList.safariextz">Safari extension</a> has been made by Gr&eacute;goire Lejeune (<a href="http://twitter.com/glejeune" title="Gr&eacute;goire on twitter">@glejeune</a>). Many thanks Gr&eacute;goire !</p>
+
+		<h3>7. By using Hubot :</h3>
+        <p>A <a href="http://hubot.github.com/">Hubot</a> <a href="https://github.com/github/hubot-scripts/blob/master/src/scripts/rsstodolist.coffee">script</a> has been made by Aurélien Thieriot (<a href="http://twitter.com/a_thieriot" title="Aurélien on twitter">@a_thieriot</a>). Many thanks Aurélien !</p>
+
+		<h2>2. Get your feed :</h2>
+			<p><a href="/?name=somename">http://rsstodolist.appspot.com/?name=somename</a> or <a href="/?n=somename">http://rsstodolist.appspot.com/?n=somename</a></p>
+
+		<h2>3. Remove an URL from your feed</h2>
+		<h3>1. By calling an URL :</h3>
+			<p><a href="/del?name=somename&amp;url={{ random_url }}">http://rsstodolist.appspot.com/del?name=somename&amp;url={{ random_url }}</a></p>
+
+		<h2>4. Feedback</h2>
+			<p>Contact me, Gr&eacute;gory PAUL, for any remark, bug or question.<br/>
+			My username is <strong>paulgreg</strong>, both on gmail and on <a href="http://twitter.com/paulgreg">twitter</a>.</p>
+
+		<h2>5. Privacy</h2>
+            <p>For now, that service is public and &quot;open&quot;. That means that anyone knowing your feed name may see your items or add new ones.</p>
+
+		<h2>6. Source code</h2>
+            <a class="right" href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml11-blue" alt="Valid XHTML 1.1" height="31" width="88" /></a>
+			<p>You will find the source code for the current application and extensions on the <a href="http://code.google.com/p/rsstodolist/">dedicated google code project page</a>.</p>
+	</div>
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		try {
+			var pageTracker = _gat._getTracker("UA-10508710-1");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>
+

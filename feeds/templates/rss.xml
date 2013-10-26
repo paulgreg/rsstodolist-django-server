@@ -10,7 +10,7 @@
 	 	<item>
 			<title>{{ feed.title }}</title>
 	 		<link>{{ feed.url }}</link>
-	 		<description>{{ feed.description }}</description>
+	 		<description>{{ feed.description|default_if_none:"" }}</description>
 			<pubDate>{{ feed.creation_date|date:"r" }}</pubDate>
 			<guid isPermaLink="false">{{ feed.key }}</guid>
 	 	</item>

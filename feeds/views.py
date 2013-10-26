@@ -84,3 +84,25 @@ def addUrl(url, name, title, description):
 
     feedentry.save()
 
+def delete(request): 
+  feedNameCleaner = FeedNameCleaner()
+  name = feedNameCleaner.clean(request.GET.get('name') or request.GET.get('n'))
+  if not name:
+    return renderHome(request)
+  else:
+    url = request.GET.get('url') or request.GET.get('u')
+
+    if url:
+      deleteUrl(url, name)
+
+    return HttpResponseRedirect('/?name=' + name)
+
+
+def deleteUrl(url, name):
+  formatedUrl = url.replace('&', '&amp;')
+
+  feed = FeedEntry.objects.filter(name=name, url=url).order_by('-creation_date')
+
+  if len(feed) >= 1:
+    feed[0].delete()
+

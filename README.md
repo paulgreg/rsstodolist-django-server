@@ -11,6 +11,7 @@ Have python and django (1.5) installed and eventually mysql or another database 
 You better install django and the database driver using pip :
 
     pip install Django==1.5.5
+    apt-get install libmysqlclient-dev
     pip install mysql-python
 
 Then create a database and a dedicated user, for mysql :

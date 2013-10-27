@@ -24,7 +24,7 @@ Then create a database and a dedicated user, for mysql :
     create database rsstodolist;
     grant all privileges on rsstodolist.* to 'rsstodolist'@'localhost' identified by 'CHANGEME';
 
-Then, you’ll have to change database information in rsstodolist\settings.py file.
+Then, you’ll have to change database information in rsstodolist\settings.py file (use settings.py.dist as example).
 
 
 Run

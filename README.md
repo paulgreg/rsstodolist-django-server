@@ -11,6 +11,10 @@ Have python and django (1.5) installed and eventually mysql or another database 
 You better install django and the database driver using pip :
 
     pip install Django==1.5.5
+
+If you’ll use mysql as database, you’ll need the following command on Debian / Ubuntu to build the mysql client :
+
+    apt-get install python-dev
     apt-get install libmysqlclient-dev
     pip install mysql-python
 

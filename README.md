@@ -28,3 +28,10 @@ Run
 You can then run the project using :
 
     python manage.py runserver
+    
+    
+Deploy
+------
+
+Follow the Django deployement guide to deploy the application : https://docs.djangoproject.com/en/dev/howto/deployment/
+

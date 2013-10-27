@@ -48,13 +48,13 @@ def add(request):
   name = feedNameCleaner.clean(request.GET.get('name') or request.GET.get('n'))
   url = request.GET.get('url') or request.GET.get('u')
   if not name or not url:
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('./')
   else:
     title  = request.GET.get('title') or request.GET.get('t')
     description = request.GET.get('description') or request.GET.get('d')
     storeActions.addUrl(url, name, title, description)
 
-    return HttpResponseRedirect('/?name=' + name)
+    return HttpResponseRedirect('./?name=' + name)
 
 
 def delete(request): 
@@ -67,6 +67,6 @@ def delete(request):
     if url:
       storeActions.deleteUrl(url, name)
 
-    return HttpResponseRedirect('/?name=' + name)
+    return HttpResponseRedirect('./?name=' + name)
 
 

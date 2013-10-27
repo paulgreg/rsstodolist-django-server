@@ -8,7 +8,7 @@ Pre-requisites
 --------------
 
 Have python and django (1.5) installed and eventually mysql or another database (you could also use sqlite).
-You better install django and the database driver using pip :
+You better install django using pip :
 
     pip install Django==1.5.5
 

@@ -29,7 +29,7 @@
         <div id="content">
             <h1>RSS TodoList</h1>
 
-            <h2>1. Add an URL to your feed</h2>
+            <h2>Add an URL to your feed</h2>
 
             <h3>1. By using that form :</h3>
             <form method="get" action="add">
@@ -56,20 +56,27 @@
             Then, clicking on that bookmark will add current page to the RSS feed.
             </p>
 
-            <h2>2. Get your feed :</h2>
+            <h3>4. By using a Firefox extension :</h3>
+            <p>A <a href="https://addons.mozilla.org/fr/firefox/addon/rsstodolist/">Firefox extension</a> is available.</p>
+
+            <h2>Get your feed :</h2>
             <p><a href="?name=somename" class="addhost">?name=somename</a> or <a href="?n=somename" class="addhost">?n=somename</a></p>
 
-            <h2>3. Remove an URL from your feed</h2>
-            <h3>1. By calling an URL :</h3>
+            <h2>Remove an URL from your feed</h2>
+            <h3>By calling an URL :</h3>
             <p><a href="del?name=somename&amp;url={{ random_url }}" class="addhost">del?name=somename&amp;url={{ random_url }}</a></p>
 
-            <h2>4. Feedback</h2>
-            <p>Contact me, Gr&eacute;gory PAUL, for any remark, bug or question.<br/>
-            My username is <strong>paulgreg</strong>, both on gmail and on <a href="http://twitter.com/paulgreg">twitter</a>.</p>
+            <h2>Feedback</h2>
+            <p>Contact me on twitter (<a href="https://twitter.com/paulgreg">@paulgreg</a>) or at gmail (my username is paulgreg).</p>
 
-            <h2>5. Source code</h2>
-            <p>You will find the source code for the current application on github : <a href="https://github.com/paulgreg/rsstodolist-server">https://github.com/paulgreg/rsstodolist-server</a>.</p>
-            <p>That version of rsstodolist is a port of the Google App Engine application, <a href="http://rsstodolist.appspot.com/">http://rsstodolist.appspot.com</a>, where the source code can be found on <a href="http://code.google.com/p/rsstodolist/">google code project page</a>.</p>
+            <h2>Source code</h2>
+            <p>Source code can be found : 
+            <ul>
+                <li>at <a href="https://github.com/paulgreg/rsstodolist-server">github.com/paulgreg/rsstodolist-server/</a> : source for that django version,</li>
+                <li>at <a href="https://github.com/paulgreg/rsstodolist-firefox">github.com/paulgreg/rsstodolist-firefox/</a> : new version of Firefox Add-on.</li>
+                <li>at <a href="http://code.google.com/p/rsstodolist/">code.google.com/p/rsstodolist/</a> : rsstodolist Google App Engine version, Chrome extension and old version of Firefox add-on sources.</li>
+            </ul>
+            </p>
         </div>
         <script>
             var base = document.location.href;

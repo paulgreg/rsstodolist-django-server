@@ -52,7 +52,7 @@
 
             <h3>3. By using that <a href="http://en.wikipedia.org/wiki/Bookmarklet" title="Learn more about bookmarklet on Wikipedia">bookmarklet</a> :</h3>
             <p>Create a new bookmarklet and paste the following code in the URL field :
-            <code>javascript:var rss=prompt('RSS feed name ?');var r=new XMLHttpRequest();r.open('GET', 'BASEadd?n='+rss+'&amp;url='+encodeURIComponent(window.location), true);r.setRequestHeader('Content-Type', 'text/plain;charset=UTF-8');r.send(null);"</code>
+            <code>javascript:var rss = prompt('RSS feed name ?');var r = new XMLHttpRequest();r.open('GET', 'https://rsstodolist.appspot.com/add?n='+rss+'&url='+encodeURIComponent(window.location), true);r.setRequestHeader('Content-Type', 'text/plain;charset=UTF-8');r.onreadystatechange=function(){if(r.readyState==4){alert("Request sent : "+(r.status===200)+" ("+r.status+")");}};r.send(null);</code>
             Then, clicking on that bookmark will add current page to the RSS feed.
             </p>
 

@@ -20,11 +20,20 @@ If you’ll use mysql as database, you’ll need the following command on Debian
 
 Then create a database and a dedicated user, for mysql :
 
-    mysql -u rsstodolist -p
+    mysql -u root -p
     create database rsstodolist;
     grant all privileges on rsstodolist.* to 'rsstodolist'@'localhost' identified by 'CHANGEME';
 
+You can then try to login using :
+
+    mysql -u rsstodolist -p
+
 Then, you’ll have to change database information in rsstodolist\settings.py file (use settings.py.dist as example).
+
+
+You should then create database table by :
+
+    python manage.py syncdb
 
 
 Run
@@ -33,8 +42,8 @@ Run
 You can then run the project using :
 
     python manage.py runserver
-    
-    
+
+
 Deploy
 ------
 

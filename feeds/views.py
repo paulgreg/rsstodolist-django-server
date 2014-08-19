@@ -33,7 +33,7 @@ def renderHome(request):
   except Exception, err:
     logging.exception('Error while fetching example URL:')
     random_url = 'http://www.google.com/'
-  
+
   context = { 'random_url': random_url }
   return render(request, 'index.html', context)
 
@@ -41,10 +41,12 @@ def renderHome(request):
 def renderRss(request, name, limit):
   feeds = FeedEntry.objects.filter(name=name).order_by('-creation_date')[:limit]
   context = { 'name': name, 'feeds': feeds }
-  return render(request, 'rss.xml', context,  content_type='text/xml')
+  response = render(request, 'rss.xml', context,  content_type='text/xml')
+  response['access-control-allow-origin'] = '*'
+  return response
 
 
-def add(request): 
+def add(request):
   name = feedNameCleaner.clean(request.GET.get('name') or request.GET.get('n'))
   url = request.GET.get('url') or request.GET.get('u')
   if not name or not url:
@@ -54,10 +56,12 @@ def add(request):
     description = request.GET.get('description') or request.GET.get('d')
     storeActions.addUrl(url, name, title, description)
 
-    return HttpResponseRedirect('./?name=' + name)
+    response = HttpResponseRedirect('./?name=' + name)
+    response['access-control-allow-origin'] = '*'
+    return response
 
 
-def delete(request): 
+def delete(request):
   name = feedNameCleaner.clean(request.GET.get('name') or request.GET.get('n'))
   if not name:
     return renderHome(request)
@@ -67,6 +71,8 @@ def delete(request):
     if url:
       storeActions.deleteUrl(url, name)
 
-    return HttpResponseRedirect('./?name=' + name)
+    response = HttpResponseRedirect('./?name=' + name)
+    response['access-control-allow-origin'] = '*'
+    return response
 
 

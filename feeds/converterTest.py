@@ -35,6 +35,10 @@ class TestConverter(unittest.TestCase):
    def testConvertAccents(self):
      assert converter.convert('test de commentaire avec accent : &eacute;&egrave;&ecirc;&icirc;&ocirc;') == 'test de commentaire avec accent : éèêîô'.decode('utf8')
 
+   # Title from https://hacks.mozilla.org/2017/02/a-crash-course-in-just-in-time-jit-compilers/
+   def testConvertAccents(self):
+     assert converter.convert('A crash course in just-in-time (JIT) compilers &#x2605; Mozilla Hacks &#8211;') == 'A crash course in just-in-time (JIT) compilers  Mozilla Hacks –'.decode('utf8')
+
 if __name__=="__main__":
    converter = Converter()
    unittest.main()

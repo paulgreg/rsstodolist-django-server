@@ -39,6 +39,9 @@ class TestConverter(unittest.TestCase):
    def testConvertAccents(self):
      assert converter.convert('A crash course in just-in-time (JIT) compilers &#x2605; Mozilla Hacks &#8211;') == 'A crash course in just-in-time (JIT) compilers  Mozilla Hacks –'.decode('utf8')
 
+   def testConvertAccents(self):
+       assert converter.convert('Meyclub - Créateur de loisirs') == 'Meyclub - Créateur de loisirs'.decode('utf8')
+
 if __name__=="__main__":
    converter = Converter()
    unittest.main()

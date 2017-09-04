@@ -9,8 +9,13 @@ class Converter():
     if (nameToClean == None):
         return None
 
-    h = HTMLParser()
-    s = h.unescape(nameToClean)
+    try:
+        s = nameToClean.decode('utf8')
+    except UnicodeEncodeError:
+        s = nameToClean
+
+    s = HTMLParser().unescape(s)
     s = s.replace('<', '{').replace('>', '}')
     s = s.replace('\n', ' ').replace('\r', '').replace('\t', ' ')
+
     return s

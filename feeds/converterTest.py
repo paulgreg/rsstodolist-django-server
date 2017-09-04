@@ -20,13 +20,13 @@ class TestConverter(unittest.TestCase):
      assert converter.convert('NEC Display Solutions &raquo; News & Media &raquo; Media Coverage') == u'NEC Display Solutions » News & Media » Media Coverage'
 
    def testConvertAccent(self):
-       assert converter.convert(u'Meyclub - Créateur de loisirs') == u'Meyclub - Créateur de loisirs'
+     assert converter.convert('Meyclub - Créateur') == u'Meyclub - Créateur'
 
    def testConvertAccentStringEncoded(self):
      assert converter.convert('Soci&eacute;t&eacute;') == u'Société'
 
    def testConvertAccentNumberEncoded(self):
-       assert converter.convert('Pot de d&#233;part') == u'Pot de départ'
+     assert converter.convert('Pot de d&#233;part') == u'Pot de départ'
 
    # Title from http://stackoverflow.com/questions/1594261/
    def testConvertTag(self):
@@ -44,6 +44,9 @@ class TestConverter(unittest.TestCase):
    # Title from https://hacks.mozilla.org/2017/02/a-crash-course-in-just-in-time-jit-compilers/
    def testConvertStar(self):
      assert converter.convert('A crash course in just-in-time (JIT) compilers &#x2605; Mozilla Hacks &#8211;') == u'A crash course in just-in-time (JIT) compilers ★ Mozilla Hacks –'
+
+   def testConvertUnicode(self):
+     assert converter.convert(u'é') == u'é'
 
 
 if __name__=="__main__":

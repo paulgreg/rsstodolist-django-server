@@ -76,3 +76,7 @@ def delete(request):
     return response
 
 
+def list(request):
+  feeds = FeedEntry.objects.order_by('name').values('name').distinct()
+  context = { 'feeds': feeds }
+  return render(request, 'list.html', context)

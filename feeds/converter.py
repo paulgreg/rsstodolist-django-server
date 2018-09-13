@@ -11,6 +11,8 @@ class Converter():
 
     try:
         s = nameToClean.decode('utf8')
+    except UnicodeDecodeError:
+        s = nameToClean
     except UnicodeEncodeError:
         s = nameToClean
 

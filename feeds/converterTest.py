@@ -26,7 +26,7 @@ class TestConverter(unittest.TestCase):
      assert converter.convert('Soci&eacute;t&eacute;') == u'Société'
 
    def testConvertAccentNumberEncoded(self):
-     assert converter.convert('Pot de d&#233;part') == u'Pot de départ'
+     assert converter.convert('Pot de d&#233;part'.encode('iso-8859-1')) == u'Pot de départ'
 
    # Title from http://stackoverflow.com/questions/1594261/
    def testConvertTag(self):

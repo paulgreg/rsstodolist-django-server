@@ -49,3 +49,5 @@ Deploy
 
 Follow the Django deployement guide to deploy the application : https://docs.djangoproject.com/en/dev/howto/deployment/
 
+Serve `src/Feeds/static` as static files in `/static` directory
+

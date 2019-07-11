@@ -26,12 +26,12 @@ class StoreActions():
             title = self.urlFetcher.fetch(url, '(?<=<(title|TITLE)>)[^<|^\r|^\n]*')
           except Exception, err:
             logging.exception('Error while fetching page title:')
-            feedentry.title = feedentry.url
+            title = feedentry.url
 
-      feedentry.title = self.converter.convert(title)
+      feedentry.title = self.converter.convert(title)[:255]
 
       if not feedentry.title:
-          feedentry.title = feedentry.url
+          feedentry.title = feedentry.url[:255]
 
       feedentry.save()
 

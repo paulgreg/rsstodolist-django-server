@@ -48,6 +48,8 @@ class TestConverter(unittest.TestCase):
    def testConvertUnicode(self):
      assert converter.convert(u'é') == u'é'
 
+   def testConvertEmoji(self):
+     assert converter.convert(u'🏠 Full-remote') == u' Full-remote'
 
 if __name__=="__main__":
    converter = Converter()

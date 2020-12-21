@@ -1,7 +1,7 @@
-rsstodolist-server
+rsstodolist-django-server
 ==================
 
-rsstodolist-server is a django port of the Google App Engine rsstodolist application (http://rsstodolist.appspot.com).
+rsstodolist-django-server is a django port of the Google App Engine rsstodolist application (http://rsstodolist.appspot.com).
 Same functionality are expected but It can be host on your server.
 
 Pre-requisites

@@ -28,12 +28,12 @@ You can then try to login using :
 
     mysql -u rsstodolist -p
 
-Then, you’ll have to change database information in rsstodolist\settings.py file (use settings.py.dist as example).
-
+Then, you’ll have to change database information in rsstodolist\settings.py file (use settings.py.dist as example) and, you’ll need to generate a `SECRET_KEY` (line 85).
 
 You should then create database table by :
 
     python manage.py syncdb
+
 
 
 Run
